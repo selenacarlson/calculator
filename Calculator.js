@@ -19,6 +19,13 @@ $( document ).ready( function(){
 
   calculateCost();
 
+  //empty input fields
+  $( '#firstNameIn' ).val('');
+  $( '#lastNameIn' ).val('');
+  $( '#idNumberIn' ).val('');
+  $( '#jobTitleIn' ).val('');
+  $( '#annualSalaryIn' ).val('');
+
 }) // end submit button
 
 function displayEmployees(){
