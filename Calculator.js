@@ -1,5 +1,6 @@
 $( document ).ready( function(){
   var employeeArray = [];
+  var monthlyCost = 0;
   // capture user input
   $( '#submitButton' ).on( 'click', function(){
   // create new object with input
@@ -22,8 +23,6 @@ $( document ).ready( function(){
 
 function displayEmployees(){
     var output = $( '#employeeOut' );
-    //empty output
-    output.empty();
     //loop through array and display on DOM
     for( i=0; i<employeeArray.length; i++ ){
       var outputString = '<li>';
@@ -36,14 +35,17 @@ function displayEmployees(){
       output.append( outputString );
   }; //end displayEmployees
 
-// function calculateCost(){
-  // var monthlyCost
-    //loop through array, divide annual salary by two, add to var monthlyCost, append to DOM
+function calculateCost(){
+  var outputCost = $( 'h2' );
+  outputCost.empty();
+  //loop through array, divide annual salary by two, add to var monthlyCost, append to DOM
+  for (i=0; i<employeeArray.length; i++){
+    var employeeCost = employeeArray[ i ].annualSalary / 12;
+    monthlyCost += employeeCost;
+  } //end for loop
 
+  outputCost.append( 'Monthly Cost: $' + monthlyCost );
 
 } //end calculateCost
 
-  //calculate monthly cost
-
-  // display monthly cost on DOM
 }); // end doc ready
