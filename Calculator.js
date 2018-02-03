@@ -37,13 +37,14 @@ function displayEmployees(){
 
 function calculateCost(){
   var outputCost = $( 'h2' );
+  //empty outputCost
   outputCost.empty();
-  //loop through array, divide annual salary by two, add to var monthlyCost, append to DOM
-  for (i=0; i<employeeArray.length; i++){
-    var employeeCost = employeeArray[ i ].annualSalary / 12;
-    monthlyCost += employeeCost;
-  } //end for loop
-
+  //divide annual salary of that employee by 12
+  var yearlyCost = $( '#annualSalaryIn' ).val()
+  employeeMonthlyCost = yearlyCost / 12
+  //add employee's monthly cost to total monthly cost
+  monthlyCost += employeeMonthlyCost;
+  //display monthly cost on DOM
   outputCost.append( 'Monthly Cost: $' + monthlyCost );
 
 } //end calculateCost
